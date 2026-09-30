@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Lives con IA en TikTok Shop — Vende 24/7 Sin Mostrar Tu Rostro</title>
+  <meta name="description" content="El sistema paso a paso para montar directos con IA en TikTok Shop, vídeos POV hiperrealistas, locución neural y ventas automáticas por solo 5€.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==================== VARIABLES & RESET ==================== */
+    :root {
+      --bg-dark: #070a13;
+      --bg-card: rgba(15, 23, 42, 0.85);
+      --bg-card-hover: rgba(30, 41, 59, 0.95);
+      --border-glow: rgba(56, 189, 248, 0.25);
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      
+      --cyan-neon: #00f2fe;
+      --magenta-neon: #ff004f;
+      --gold-neon: #f59e0b;
+      --emerald-neon: #10b981;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Ambient Background Glows (contained so no horizontal overflow) */
+    .ambient-glow-1 {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 600px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ambient-glow-2 {
+      position: absolute;
+      top: 900px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 600px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(255, 0, 79, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Fluid Responsive Container */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+    }
+    .gradient-text-tiktok {
+      background: linear-gradient(135deg, var(--cyan-neon) 10%, #ffffff 50%, var(--magenta-neon) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-text-gold {
+      background: linear-gradient(135deg, #fef08a, var(--gold-neon));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Top Scarcity Bar */
+    .top-announcement-bar {
+      background: linear-gradient(90deg, #0b1120, #1e112a, #0b1120);
+      border-bottom: 1px solid rgba(255, 0, 79, 0.35);
+      padding: 9px 12px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+    }
+    .countdown-timer-box {
+      background: rgba(255, 0, 79, 0.25);
+      border: 1px solid var(--magenta-neon);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 5px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Buttons & CTAs */
+    .btn-cta-giant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(135deg, #ff004f 0%, #d90429 50%, #f72585 100%);
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 30px rgba(255, 0, 79, 0.45);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .btn-cta-giant:active {
+      transform: scale(0.98);
+    }
+    .btn-cta-subtext {
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.95;
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 28px 0 36px 0;
+      position: relative;
+    }
+    .hero-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      color: var(--cyan-neon);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+    .hero-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .hero-title {
+      font-size: 28px;
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
+    .hero-description {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .hero-price-highlight {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+    .hero-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--emerald-neon);
+      color: var(--emerald-neon);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    /* 3D Product Box in Hero */
+    .hero-mockup-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 320px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-mockup-card {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 242, 254, 0.3);
+      background: #0b0f19;
+    }
+    .hero-mockup-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hero-floating-pill {
+      margin-top: -16px;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--gold-neon);
+      padding: 8px 16px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin: 36px auto 24px auto;
+    }
+    .section-tag {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--cyan-neon);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* 4 Pillars Mobile Cards */
+    .pillars-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 18px 16px;
+      position: relative;
+    }
+    .pillar-number {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--magenta-neon);
+      margin-bottom: 4px;
+    }
+    .pillar-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.48;
+    }
+
+    /* Visual Showcase Preview (Mobile Optimized Mockups) */
+    .visual-preview-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .visual-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .visual-card-img-wrap {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .visual-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .visual-card-body {
+      padding: 14px 16px;
+    }
+    .visual-card-badge {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--cyan-neon);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .visual-card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .visual-card-text {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* Comparison Table (Mobile-friendly Stack Cards) */
+    .comp-mobile-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .comp-mobile-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .comp-mobile-header {
+      font-size: 13px;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 4px;
+    }
+    .comp-mobile-old {
+      font-size: 12px;
+      color: #fca5a5;
+      margin-bottom: 4px;
+    }
+    .comp-mobile-new {
+      font-size: 12.5px;
+      color: #a7f3d0;
+      font-weight: 600;
+    }
+
+    /* Interactive Profit Calculator */
+    .calculator-box {
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      border-radius: 16px;
+      padding: 20px 16px;
+      margin-bottom: 36px;
+    }
+    .slider-group {
+      margin-bottom: 18px;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .slider-input {
+      width: 100%;
+      height: 6px;
+      background: #334155;
+      border-radius: 5px;
+      outline: none;
+      accent-color: var(--cyan-neon);
+      cursor: pointer;
+    }
+    .calc-result-card {
+      background: #090e17;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      margin-top: 14px;
+    }
+    .calc-revenue-amount {
+      font-size: 34px;
+      font-weight: 900;
+      color: #fbbf24;
+      font-family: var(--font-heading);
+      margin: 4px 0;
+    }
+
+    /* Course Modules Accordion */
+    .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .accordion-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #f1f5f9;
+      user-select: none;
+    }
+    .accordion-icon {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+      color: var(--cyan-neon);
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+    .accordion-body {
+      padding: 0 16px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+    .accordion-item.open {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+    .accordion-item.open .accordion-icon {
+      transform: rotate(45deg);
+    }
+    .accordion-item.open .accordion-body {
+      max-height: 240px;
+      padding: 12px 16px 16px 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Bonuses Mobile Cards */
+    .bonuses-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .bonus-card {
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 14px;
+      padding: 18px 16px;
+      position: relative;
+    }
+    .bonus-badge {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #000;
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .bonus-value {
+      font-size: 11.5px;
+      text-decoration: line-through;
+      color: #94a3b8;
+    }
+    .bonus-free {
+      color: var(--emerald-neon);
+      font-weight: 800;
+      font-size: 12.5px;
+    }
+
+    /* Pricing Section (5 EUROS) */
+    .pricing-card {
+      background: radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 1) 100%);
+      border: 2px solid var(--magenta-neon);
+      border-radius: 20px;
+      padding: 28px 18px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 15px 40px rgba(255, 0, 79, 0.25);
+      margin-bottom: 36px;
+    }
+    .pricing-badge-popular {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #ff004f, #f72585);
+      color: #fff;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 3px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
+    }
+    .pricing-original {
+      font-size: 18px;
+      color: #64748b;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+    .pricing-deal {
+      font-size: 58px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      margin: 4px 0 8px 0;
+      font-family: var(--font-heading);
+    }
+    .pricing-checklist {
+      list-style: none;
+      text-align: left;
+      margin: 18px 0 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .pricing-checklist li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #cbd5e1;
+    }
+
+    /* Guarantee Box */
+    .guarantee-box {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .guarantee-seal {
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, #fbbf24, #d97706);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    /* Social Proof Toast */
+    .live-purchase-toast {
+      position: fixed;
+      bottom: 74px;
+      left: 12px;
+      right: 12px;
+      max-width: 320px;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      z-index: 99;
+      transform: translateY(200%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .live-purchase-toast.show {
+      transform: translateY(0);
+    }
+    .toast-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #000;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Sticky Bottom Mobile Bar */
+    .sticky-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 15, 25, 0.98);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 0, 79, 0.4);
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 95;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-bottom-bar.visible {
+      transform: translateY(0);
+    }
+
+    /* Checkout Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 16px;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-content {
+      background: #0f172a;
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      border-radius: 18px;
+      max-width: 420px;
+      width: 100%;
+      padding: 24px 20px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-input {
+      width: 100%;
+      background: #070a13;
+      border: 1px solid #334155;
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      outline: none;
+    }
+    .modal-input:focus {
+      border-color: var(--cyan-neon);
+    }
+
+    /* Desktop Enhancements */
+    @media (min-width: 768px) {
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 36px;
+      }
+      .hero-title { font-size: 40px; }
+      .hero-bullets {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .pillars-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .visual-preview-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .bonuses-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .guarantee-box {
+        flex-direction: row;
+        text-align: left;
+        max-width: 640px;
+      }
+      .btn-cta-giant {
+        font-size: 18px;
+      }
+      .section-title {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <span>🔥 ACCESO COMPLETO POR SOLO <strong>5€</strong> (OFERTA ESPECIAL)</span>
+    <div style="display: flex; align-items: center; gap: 5px;">
+      <span>TERMINA EN:</span>
+      <span class="countdown-timer-box" id="top-timer">08:42</span>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Text Column -->
+        <div>
+          <div class="hero-badge-tag">
+            <span>●</span> MÉTODO OFICIAL NO-FACE LIVES • TIKTOK SHOP
+          </div>
+          
+          <h1 class="hero-title">
+            Cómo Montar Lives con IA en TikTok Shop y <span class="gradient-text-tiktok">Vender 24/7 Sin Mostrar Tu Rostro</span>
+          </h1>
+
+          <p class="hero-description">
+            El sistema exacto para automatizar transmisiones en vivo con vídeos POV hiperrealistas, locución neural humana y fijación perpetua de la cesta naranja para cobrar comisiones sin inventario.
+          </p>
+
+          <div class="hero-price-highlight">
+            <span style="font-size: 16px;">🏷️</span>
+            <div><strong>Precio Especial de Acceso:</strong> <span style="text-decoration: line-through; color: #94a3b8;">47€</span> <span style="color: #34d399; font-weight: 800; font-size: 15px;">Solo 5€ Hoy</span></div>
+          </div>
+
+          <ul class="hero-bullets">
+            <li><span class="check-icon">✓</span> <strong>Cero Cámaras:</strong> La IA crea los planos por ti</li>
+            <li><span class="check-icon">✓</span> <strong>Cero Stock:</strong> Comisiones directas de afiliado</li>
+            <li><span class="check-icon">✓</span> <strong>Anti-Ban Total:</strong> Bucle largo inmune a sanciones</li>
+            <li><span class="check-icon">✓</span> <strong>24/7 en Piloto Automático:</strong> Emisión continua</li>
+          </ul>
+
+          <button class="btn-cta-giant" onclick="openCheckoutModal()">
+            <span>¡QUIERO ACCEDER POR SOLO 5€!</span>
+            <span class="btn-cta-subtext">Descarga Inmediata • Manual PDF + 3 Bonos VIP</span>
+          </button>
+          
+          <div style="text-align: center; margin-top: 10px; font-size: 12px; color: #94a3b8;">
+            <span style="color: #f59e0b;">★★★★★</span>
+            <span><strong>4.9/5</strong> valorado por más de 1.400 afiliados</span>
+          </div>
+        </div>
+
+        <!-- 3D Mockup Column -->
+        <div class="hero-mockup-wrapper">
+          <div class="hero-mockup-card">
+            <img class="hero-mockup-img" src="assets/cover_product_chamativa.jpg" alt="Pack Bestseller Lives con IA en TikTok Shop">
+          </div>
+          <div class="hero-floating-pill">
+            <span>🛒</span>
+            <span>COMISIONES DIRECTAS 24/7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL PREVIEW SHOWCASE (REPLACES THE VIDEO AS REQUESTED) -->
+  <section style="padding: 20px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CÓMO FUNCIONA EL SISTEMA</span>
+        <h2 class="section-title">El Proceso Automatizado en Pantalla</h2>
+        <p class="section-subtitle">
+          Una esteira de producción continua que puedes operar desde cualquier ordenador.
+        </p>
+      </div>
+
+      <div class="visual-preview-grid">
+        <div class="visual-card">
+          <div class="visual-card-img-wrap">
+            <img class="visual-card-img" src="assets/img_cover_studio.jpg" alt="Estudio de Transmisión">
+          </div>
+          <div class="visual-card-body">
+            <span class="visual-card-badge">PASO 1 • WORKSPACE</span>
+            <div class="visual-card-title">Estación Desktop Automatizada</div>
+            <p class="visual-card-text">
+              Configuración en TikTok Live Studio a 1080x1920 Full HD a 60 FPS con bypass de webcam para emitir sin interrupciones.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-card">
+          <div class="visual-card-img-wrap">
+            <img class="visual-card-img" src="assets/img_pov_hands.jpg" alt="Demostración POV con IA">
+          </div>
+          <div class="visual-card-body">
+            <span class="visual-card-badge">PASO 2 • GENERACIÓN POV</span>
+            <div class="visual-card-title">Planos en Primera Persona (9:16)</div>
+            <p class="visual-card-text">
+              Imágenes hiperrealistas de manos sosteniendo el producto y animación suave de 8s en Kling AI sin distorsiones en dedos.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-card">
+          <div class="visual-card-img-wrap">
+            <img class="visual-card-img" src="assets/img_tiktok_mockup.jpg" alt="TikTok Live Interface con Cesta">
+          </div>
+          <div class="visual-card-body">
+            <span class="visual-card-badge">PASO 3 • VENTA ACTIVA</span>
+            <div class="visual-card-title">Fijación de la Cesta Naranja (Pin)</div>
+            <p class="visual-card-text">
+              Técnica para mantener el pop-up de compra flotando en pantalla en todo momento para maximizar las compras compulsivas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 PILLARS SECTION -->
+  <section style="padding: 20px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">VENTAJAS COMPETITIVAS</span>
+        <h2 class="section-title">Los 4 Pilares del Método</h2>
+      </div>
+
+      <div class="pillars-container">
+        <div class="pillar-card">
+          <div class="pillar-number">PILAR 01</div>
+          <div class="pillar-title">0 Cámaras</div>
+          <p class="pillar-desc">
+            No necesitas grabarte ni mostrar tu rostro. Generamos planos POV de alta fidelidad con inteligencia artificial.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-number">PILAR 02</div>
+          <div class="pillar-title">Cero Inventario</div>
+          <p class="pillar-desc">
+            No compras stock. Te registras como afiliado en TikTok Shop y ganas comisiones automáticas del 15% al 25% por venta.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-number">PILAR 03</div>
+          <div class="pillar-title">Blindaje Anti-Ban</div>
+          <p class="pillar-desc">
+            Usamos bucles largos de 90 a 120 minutos con tomas no lineales y hash inédito, protegiendo tu cuenta de sanciones.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-number">PILAR 04</div>
+          <div class="pillar-title">Cesta Fija (Pin)</div>
+          <p class="pillar-desc">
+            Fijamos la bolsa de compras en los primeros 5 segundos. Todos los espectadores verán la oferta activa en directo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON (MOBILE OPTIMIZED) -->
+  <section style="padding: 20px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">COMPARATIVA CLARA</span>
+        <h2 class="section-title">Método Tradicional vs. Sistema con IA</h2>
+      </div>
+
+      <div class="comp-mobile-container">
+        <div class="comp-mobile-item">
+          <div class="comp-mobile-header">PRESENCIA EN CÁMARA</div>
+          <div class="comp-mobile-old">❌ Tradicional: Hablar 6h frente a la cámara agotado</div>
+          <div class="comp-mobile-new">✔ Con IA: 100% Anónimo (Planos POV sin mostrar rostro)</div>
+        </div>
+
+        <div class="comp-mobile-item">
+          <div class="comp-mobile-header">INVERSIÓN EN PRODUCTO</div>
+          <div class="comp-mobile-old">❌ Tradicional: Gastar miles de euros en inventario arriesgado</div>
+          <div class="comp-mobile-new">✔ Con IA: 0€ en inventario (Afiliación con cobro directo)</div>
+        </div>
+
+        <div class="comp-mobile-item">
+          <div class="comp-mobile-header">SEGURIDAD ANTE BANEOS</div>
+          <div class="comp-mobile-old">❌ Tradicional: Baneos constantes por descargar vídeos de internet</div>
+          <div class="comp-mobile-new">✔ Con IA: Píxeles 100% originales con código hash único</div>
+        </div>
+
+        <div class="comp-mobile-item">
+          <div class="comp-mobile-header">ESCALABILIDAD</div>
+          <div class="comp-mobile-old">❌ Tradicional: Limitado a tus horas de energía humana</div>
+          <div class="comp-mobile-new">✔ Con IA: Emisión 24/7 en múltiples cuentas en paralelo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PROFIT CALCULATOR -->
+  <section style="padding: 20px 0;">
+    <div class="container">
+      <div class="calculator-box">
+        <div class="section-header" style="margin: 0 0 16px 0;">
+          <span class="section-tag" style="color: #fbbf24;">SIMULADOR DE INGRESOS</span>
+          <h2 style="font-size: 22px; color: #fff;">Calcula Tus Comisiones</h2>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Horas de emisión al día:</span>
+            <span id="label-hours" style="color: var(--cyan-neon); font-weight: 700;">6 Horas</span>
+          </div>
+          <input type="range" class="slider-input" id="input-hours" min="2" max="24" value="6" oninput="updateCalculation()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Ventas estimadas por hora:</span>
+            <span id="label-sales" style="color: var(--cyan-neon); font-weight: 700;">4 Ventas/h</span>
+          </div>
+          <input type="range" class="slider-input" id="input-sales" min="1" max="15" value="4" oninput="updateCalculation()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Comisión media por venta:</span>
+            <span id="label-commission" style="color: var(--cyan-neon); font-weight: 700;">€ 4,50</span>
+          </div>
+          <input type="range" class="slider-input" id="input-commission" min="2" max="15" value="4.5" step="0.5" oninput="updateCalculation()">
+        </div>
+
+        <div class="calc-result-card">
+          <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700;">Estimación Mensual de Comisiones</div>
+          <div class="calc-revenue-amount" id="calc-monthly-val">€ 3.240</div>
+          <div style="font-size: 12.5px; color: #10b981; font-weight: 700;" id="calc-daily-val">
+            (Equivalente a € 108,00 al día)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES ACCORDION -->
+  <section style="padding: 20px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">TEMARIO DEL MANUAL</span>
+        <h2 class="section-title">Contenido del Playbook Oficial</h2>
+      </div>
+
+      <div class="accordion-list">
+        <div class="accordion-item open" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>Módulo 1: Stack de Herramientas y Conexión</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Calodata, Midjourney, Kling AI, ChatGPT, Fish Audio, CapCut y TikTok Live Studio integrados en una esteira de producción continua.
+          </div>
+        </div>
+
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>Módulo 2: Minería de Productos (+500% GMV)</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Los 4 Filtros de Oro en Calodata para hallar productos ganadores de compra impulsiva con comisiones mayores al 15%.
+          </div>
+        </div>
+
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>Módulo 3: Prompts POV 9:16 y Animación</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Fórmulas maestras de prompts para generar manos hiperrealistas y conversión a clips de 8s en Kling AI sin deformidades.
+          </div>
+        </div>
+
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>Módulo 4: Copy AIDA y Voz en Fish Audio</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Roteiros de 3 minutos con pausas fonéticas de respiración y ritmo acelerado a 1.15x para retener la atención.
+          </div>
+        </div>
+
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>Módulo 5: CapCut Master Loop (Anti-Ban)</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Ensamblaje del bucle de 90 a 120 minutos alternando tomas para eliminar advertencias de repetición y banner superior 16:9.
+          </div>
+        </div>
+
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>Módulo 6: TikTok Live Studio y Pin de Cesta</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Ajustes técnicos de encoder (1080x1920 60FPS NVENC), bypass de cámara web y fijación permanente del enlace de compra.
+          </div>
+        </div>
+
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>Módulo 7: Modelo Híbrido y Escala</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Regla de las 72 horas para renovación de metadatos, intervención puntual al micrófono y diversificación multicuenta.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BONUSES -->
+  <section style="padding: 20px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: #fbbf24;">REGALOS GRATIS HOY</span>
+        <h2 class="section-title">3 Bonos Exclusivos Incluidos</h2>
+      </div>
+
+      <div class="bonuses-container">
+        <div class="bonus-card">
+          <span class="bonus-badge">BONO 1</span>
+          <div style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Master Pack de 50 Prompts POV</div>
+          <p style="font-size: 12.5px; color: #94a3b8; margin-bottom: 10px;">
+            Colección de prompts listos para copiar y pegar para las 5 categorías más rentables (Hogar, Cocina, Belleza, Limpieza y Gadgets).
+          </p>
+          <div><span class="bonus-value">Valor: 47€</span> <span class="bonus-free">GRATIS HOY</span></div>
+        </div>
+
+        <div class="bonus-card">
+          <span class="bonus-badge">BONO 2</span>
+          <div style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Plantillas de Guiones AIDA</div>
+          <p style="font-size: 12.5px; color: #94a3b8; margin-bottom: 10px;">
+            Estructuras probadas en ciclos de 3 minutos con llamadas a la acción psicológicas calibradas para Fish Audio y ElevenLabs.
+          </p>
+          <div><span class="bonus-value">Valor: 39€</span> <span class="bonus-free">GRATIS HOY</span></div>
+        </div>
+
+        <div class="bonus-card">
+          <span class="bonus-badge">BONO 3</span>
+          <div style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Lista VIP de 25 Proveedores</div>
+          <p style="font-size: 12.5px; color: #94a3b8; margin-bottom: 10px;">
+            Acceso directo a tiendas de TikTok Shop con más del 18% de comisión neta y envío prioritario garantizado.
+          </p>
+          <div><span class="bonus-value">Valor: 67€</span> <span class="bonus-free">GRATIS HOY</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION (EXACT 5 EUROS) -->
+  <section style="padding: 20px 0;" id="pricing-section">
+    <div class="container">
+      <div class="pricing-card">
+        <div class="pricing-badge-popular">OFERTA DE LANZAMIENTO</div>
+        <div style="font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 4px;">Acceso Completo al Sistema</div>
+        <p style="font-size: 12px; color: #94a3b8;">Pago único • Sin suscripciones ni costes ocultos</p>
+
+        <div style="margin: 16px 0;">
+          <span class="pricing-original">47€</span>
+          <div class="pricing-deal">5€</div>
+          <span style="font-size: 12px; color: #34d399; font-weight: 800; text-transform: uppercase;">PRECIO SIMBÓLICO DE ACCESO</span>
+        </div>
+
+        <ul class="pricing-checklist">
+          <li><span class="check-icon">✓</span> <strong>Manual Oficial en PDF (Texto Técnico 6 Páginas)</strong></li>
+          <li><span class="check-icon">✓</span> <strong>Manual Visual con Infografías y Diagramas</strong></li>
+          <li><span class="check-icon">✓</span> <strong>Bono 1:</strong> Pack de 50 Prompts POV Maestros (47€ Valor)</li>
+          <li><span class="check-icon">✓</span> <strong>Bono 2:</strong> Plantillas de Guiones AIDA (39€ Valor)</li>
+          <li><span class="check-icon">✓</span> <strong>Bono 3:</strong> Directorio de 25 Proveedores VIP (67€ Valor)</li>
+          <li><span class="check-icon">✓</span> <strong>Checklist Diario de Operación de 9 Pasos</strong></li>
+          <li><span class="check-icon">✓</span> Actualizaciones de por vida</li>
+        </ul>
+
+        <button class="btn-cta-giant" onclick="openCheckoutModal()">
+          <span>¡ACCEDER AHORA POR SOLO 5€!</span>
+          <span class="btn-cta-subtext">Garantía Incondicional de 7 Días</span>
+        </button>
+
+        <div style="margin-top: 14px; font-size: 11px; color: #64748b;">
+          🔒 Pago seguro cifrado SSL de 256 bits • Descarga inmediata
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section style="padding: 10px 0 30px 0;">
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="guarantee-seal">
+          7
+          <span style="font-size: 8px; font-weight: 800;">DÍAS</span>
+        </div>
+        <div>
+          <div style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px;">Garantía Total de Reembolso de 7 Días</div>
+          <p style="font-size: 12.5px; color: #94a3b8; line-height: 1.45;">
+            Si en 7 días aplicas el método y sientes que no ha valido al menos 10 veces más de lo que pagaste, envíanos un correo y te reembolsaremos el 100% de tus 5€ de inmediato, sin preguntas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding: 10px 0 40px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">PREGUNTAS FRECUENTES</span>
+        <h2 class="section-title">Dudas Comunes</h2>
+      </div>
+
+      <div class="accordion-list">
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>¿Por qué solo cuesta 5 euros?</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Queremos que cualquier persona, independientemente de su presupuesto inicial, pueda implementar la metodología No-Face y comprobar el poder del comercio en vivo con IA sin barreras económicas.
+          </div>
+        </div>
+
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>¿TikTok me puede penalizar por usar IA?</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            No. TikTok penaliza el contenido reutilizado (copiado de otros creadores). Al generar imágenes y vídeos originales con IA, la huella digital es 100% inédita.
+          </div>
+        </div>
+
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <span>¿Cómo recibo el material tras pagar los 5€?</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            Inmediatamente tras confirmar el pago, la pantalla te entregará el acceso directo para descargar los manuales en PDF y todos los bonos en tu dispositivo.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #050811; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 30px 16px 90px 16px; text-align: center; font-size: 11px; color: #64748b;">
+    <div class="container">
+      <div style="font-weight: 700; color: #cbd5e1; margin-bottom: 6px;">
+        TIKTOK SHOP AI AUTOMATION PROTOCOL
+      </div>
+      <p style="margin-bottom: 8px;">
+        Este sitio no forma parte de TikTok, ByteDance Ltd ni de sus filiales.
+      </p>
+      <p>© 2026/2027 Todos los derechos reservados • Términos y Privacidad</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING LIVE PURCHASE TOAST (SOCIAL PROOF) -->
+  <div class="live-purchase-toast" id="purchase-toast">
+    <div class="toast-avatar" id="toast-avatar">CM</div>
+    <div>
+      <div style="font-size: 11.5px; font-weight: 700; color: #fff;" id="toast-name">Carlos M. de Madrid</div>
+      <div style="font-size: 10.5px; color: #10b981;">Compró el Sistema No-Face por 5€ hace 2 min</div>
+    </div>
+  </div>
+
+  <!-- STICKY BOTTOM MOBILE BAR -->
+  <div class="sticky-bottom-bar" id="sticky-bar">
+    <div>
+      <div style="font-size: 11.5px; color: #94a3b8;">Precio Especial:</div>
+      <div style="font-size: 16px; font-weight: 900; color: #fbbf24;">Solo 5€</div>
+    </div>
+    <button class="btn-cta-giant" style="padding: 10px 20px; font-size: 13.5px; width: auto; max-width: none; margin: 0;" onclick="openCheckoutModal()">
+      <span>¡COMPRAR POR 5€!</span>
+    </button>
+  </div>
+
+  <!-- CHECKOUT MODAL (5 EUROS) -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()">✕</button>
+      
+      <div style="text-align: center; margin-bottom: 14px;">
+        <span style="font-size: 10px; font-weight: 800; color: var(--cyan-neon); text-transform: uppercase;">PAGO 100% SEGURO</span>
+        <div style="font-size: 18px; font-weight: 800; color: #fff; margin-top: 2px;">Acceso Completo por 5€</div>
+      </div>
+
+      <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 0, 79, 0.4); border-radius: 10px; padding: 12px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-size: 12.5px; font-weight: 700; color: #fff;">Lives con IA: Sistema No-Face</div>
+          <div style="font-size: 10.5px; color: #94a3b8;">Manual Técnico PDF + 3 Bonos VIP</div>
+        </div>
+        <div style="font-size: 24px; font-weight: 900; color: #ff004f;">5€</div>
+      </div>
+
+      <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)">
+        <input type="text" class="modal-input" placeholder="Tu Nombre" required value="Emprendedor Digital">
+        <input type="email" class="modal-input" placeholder="Tu Correo Electrónico" required value="cliente@ejemplo.com">
+        
+        <div style="margin-bottom: 14px;">
+          <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 4px;">Forma de Pago:</div>
+          <div style="display: flex; gap: 8px;">
+            <div style="flex: 1; border: 1px solid var(--cyan-neon); background: rgba(0, 242, 254, 0.1); padding: 8px; border-radius: 6px; text-align: center; font-size: 11.5px; font-weight: 700; color: #fff;">
+              💳 Tarjeta / Apple Pay
+            </div>
+            <div style="flex: 1; border: 1px solid #334155; padding: 8px; border-radius: 6px; text-align: center; font-size: 11.5px; color: #94a3b8;">
+              🅿️ PayPal
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-cta-giant" style="width: 100%; padding: 14px; font-size: 15px;">
+          <span>PAGAR 5€ Y ACCEDER AHORA</span>
+        </button>
+      </form>
+
+      <div id="checkout-success" style="display: none; text-align: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        <div style="font-size: 28px; margin-bottom: 4px;">🎉</div>
+        <div style="font-size: 15px; font-weight: 800; color: #10b981;">¡Acceso Confirmado por 5€!</div>
+        <p style="font-size: 11.5px; color: #cbd5e1; margin: 4px 0 12px 0;">
+          Descarga tus manuales y bonos de inmediato:
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a href="./assets/Documento_Oficial_Lives_IA_TikTok_Shop_Premium.pdf" class="btn-cta-giant" style="padding: 10px; font-size: 12.5px;" download>
+            📥 Descargar Manual Oficial (PDF 6 Páginas)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Countdown Timer
+    let timeLeft = 8 * 60 + 42;
+    const timerDisplay = document.getElementById('top-timer');
+
+    setInterval(() => {
+      if (timeLeft <= 0) {
+        timeLeft = 15 * 60;
+      }
+      timeLeft--;
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerDisplay.innerText = 
+        String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+    }, 1000);
+
+    // Profit Calculator
+    function updateCalculation() {
+      const hours = parseFloat(document.getElementById('input-hours').value);
+      const sales = parseFloat(document.getElementById('input-sales').value);
+      const commission = parseFloat(document.getElementById('input-commission').value);
+
+      document.getElementById('label-hours').innerText = hours + " Horas";
+      document.getElementById('label-sales').innerText = sales + " Ventas/h";
+      document.getElementById('label-commission').innerText = "€ " + commission.toFixed(2);
+
+      const dailyTotal = hours * sales * commission;
+      const monthlyTotal = dailyTotal * 30;
+
+      document.getElementById('calc-monthly-val').innerText = "€ " + Math.round(monthlyTotal).toLocaleString();
+      document.getElementById('calc-daily-val').innerText = "(Equivalente a € " + dailyTotal.toFixed(2) + " al día)";
+    }
+
+    // Accordions
+    function toggleAccordion(element) {
+      element.classList.toggle('open');
+    }
+
+    // Sticky Bottom Bar on Mobile/Desktop Scroll
+    window.addEventListener('scroll', () => {
+      const stickyBar = document.getElementById('sticky-bar');
+      if (window.scrollY > 400) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    });
+
+    // Social Proof Toast
+    const recentPurchases = [
+      { name: "Carlos M. de Madrid", time: "hace 2 min", initials: "CM" },
+      { name: "Lucía F. de Valencia", time: "hace 4 min", initials: "LF" },
+      { name: "Andrés R. de Barcelona", time: "hace 1 min", initials: "AR" },
+      { name: "Mateo S. de Sevilla", time: "hace 6 min", initials: "MS" }
+    ];
+    let purchaseIdx = 0;
+    const toast = document.getElementById('purchase-toast');
+
+    function showToast() {
+      const item = recentPurchases[purchaseIdx];
+      document.getElementById('toast-name').innerText = item.name;
+      document.getElementById('toast-avatar').innerText = item.initials;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+
+      purchaseIdx = (purchaseIdx + 1) % recentPurchases.length;
+    }
+
+    setInterval(showToast, 11000);
+    setTimeout(showToast, 3000);
+
+    // Checkout Modal
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('active');
+    }
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('active');
+    }
+
+    function handleCheckoutSubmit(e) {
+      e.preventDefault();
+      document.getElementById('checkout-form').style.display = 'none';
+      document.getElementById('checkout-success').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
