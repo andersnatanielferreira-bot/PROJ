@@ -42,8 +42,7 @@ landing_page_tiktok_shop_ia/
 │   ├── img_cover_studio.jpg
 │   ├── img_pov_hands.jpg
 │   ├── img_tiktok_mockup.jpg
-│   ├── demo_video.mp4
-│   └── Documento_Oficial_Lives_IA_TikTok_Shop_Premium.pdf
+│   └── demo_video.mp4
 ├── .gitignore
 └── README.md
 ```

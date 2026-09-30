@@ -837,7 +837,7 @@
 
           <a href="https://pay.hotmart.com/H107804789A?bid=1790757219028" class="btn-cta-giant">
             <span>¡QUIERO ACCEDER POR SOLO 5€!</span>
-            <span class="btn-cta-subtext">Descarga Inmediata • Manual PDF + 3 Bonos VIP</span>
+            <span class="btn-cta-subtext">Acceso Inmediato • Manual PDF + 3 Bonos VIP</span>
           </a>
           
           <div style="text-align: center; margin-top: 10px; font-size: 12px; color: #94a3b8;">
@@ -1189,7 +1189,7 @@
         </a>
 
         <div style="margin-top: 14px; font-size: 11px; color: #64748b;">
-          🔒 Pago seguro cifrado SSL de 256 bits • Descarga inmediata
+          🔒 Pago 100% seguro en Hotmart • Entrega inmediata por correo
         </div>
       </div>
     </div>
@@ -1248,7 +1248,7 @@
             <span class="accordion-icon">+</span>
           </div>
           <div class="accordion-body">
-            Inmediatamente tras confirmar el pago, la pantalla te entregará el acceso directo para descargar los manuales en PDF y todos los bonos en tu dispositivo.
+            Inmediatamente tras confirmar el pago en la pasarela oficial de Hotmart, recibirás en tu correo electrónico el acceso completo e instantáneo a todo el material, manuales y bonos para comenzar de inmediato.
           </div>
         </div>
       </div>
@@ -1288,59 +1288,7 @@
     </a>
   </div>
 
-  <!-- CHECKOUT MODAL (5 EUROS) -->
-  <div class="modal-overlay" id="checkout-modal">
-    <div class="modal-content">
-      <button class="modal-close-btn" onclick="closeCheckoutModal()">✕</button>
-      
-      <div style="text-align: center; margin-bottom: 14px;">
-        <span style="font-size: 10px; font-weight: 800; color: var(--cyan-neon); text-transform: uppercase;">PAGO 100% SEGURO</span>
-        <div style="font-size: 18px; font-weight: 800; color: #fff; margin-top: 2px;">Acceso Completo por 5€</div>
-      </div>
 
-      <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 0, 79, 0.4); border-radius: 10px; padding: 12px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;">
-        <div>
-          <div style="font-size: 12.5px; font-weight: 700; color: #fff;">Lives con IA: Sistema No-Face</div>
-          <div style="font-size: 10.5px; color: #94a3b8;">Manual Técnico PDF + 3 Bonos VIP</div>
-        </div>
-        <div style="font-size: 24px; font-weight: 900; color: #ff004f;">5€</div>
-      </div>
-
-      <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)">
-        <input type="text" class="modal-input" placeholder="Tu Nombre" required value="Emprendedor Digital">
-        <input type="email" class="modal-input" placeholder="Tu Correo Electrónico" required value="cliente@ejemplo.com">
-        
-        <div style="margin-bottom: 14px;">
-          <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 4px;">Forma de Pago:</div>
-          <div style="display: flex; gap: 8px;">
-            <div style="flex: 1; border: 1px solid var(--cyan-neon); background: rgba(0, 242, 254, 0.1); padding: 8px; border-radius: 6px; text-align: center; font-size: 11.5px; font-weight: 700; color: #fff;">
-              💳 Tarjeta / Apple Pay
-            </div>
-            <div style="flex: 1; border: 1px solid #334155; padding: 8px; border-radius: 6px; text-align: center; font-size: 11.5px; color: #94a3b8;">
-              🅿️ PayPal
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-cta-giant" style="width: 100%; padding: 14px; font-size: 15px;">
-          <span>PAGAR 5€ Y ACCEDER AHORA</span>
-        </button>
-      </form>
-
-      <div id="checkout-success" style="display: none; text-align: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-        <div style="font-size: 28px; margin-bottom: 4px;">🎉</div>
-        <div style="font-size: 15px; font-weight: 800; color: #10b981;">¡Acceso Confirmado por 5€!</div>
-        <p style="font-size: 11.5px; color: #cbd5e1; margin: 4px 0 12px 0;">
-          Descarga tus manuales y bonos de inmediato:
-        </p>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <a href="./assets/Documento_Oficial_Lives_IA_TikTok_Shop_Premium.pdf" class="btn-cta-giant" style="padding: 10px; font-size: 12.5px;" download>
-            📥 Descargar Manual Oficial (PDF 6 Páginas)
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- JAVASCRIPT -->
   <script>
@@ -1417,18 +1365,10 @@
     setInterval(showToast, 11000);
     setTimeout(showToast, 3000);
 
-    // Checkout Direct to Hotmart
+    // Redirect to Hotmart Checkout
     const HOTMART_CHECKOUT_URL = 'https://pay.hotmart.com/H107804789A?bid=1790757219028';
 
     function openCheckoutModal() {
-      window.location.href = HOTMART_CHECKOUT_URL;
-    }
-    function closeCheckoutModal() {
-      document.getElementById('checkout-modal').classList.remove('active');
-    }
-
-    function handleCheckoutSubmit(e) {
-      e.preventDefault();
       window.location.href = HOTMART_CHECKOUT_URL;
     }
   </script>
