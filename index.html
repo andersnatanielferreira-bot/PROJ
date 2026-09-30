@@ -835,10 +835,10 @@
             <li><span class="check-icon">✓</span> <strong>24/7 en Piloto Automático:</strong> Emisión continua</li>
           </ul>
 
-          <button class="btn-cta-giant" onclick="openCheckoutModal()">
+          <a href="https://pay.hotmart.com/H107804789A?bid=1790757219028" class="btn-cta-giant">
             <span>¡QUIERO ACCEDER POR SOLO 5€!</span>
             <span class="btn-cta-subtext">Descarga Inmediata • Manual PDF + 3 Bonos VIP</span>
-          </button>
+          </a>
           
           <div style="text-align: center; margin-top: 10px; font-size: 12px; color: #94a3b8;">
             <span style="color: #f59e0b;">★★★★★</span>
@@ -1183,10 +1183,10 @@
           <li><span class="check-icon">✓</span> Actualizaciones de por vida</li>
         </ul>
 
-        <button class="btn-cta-giant" onclick="openCheckoutModal()">
+        <a href="https://pay.hotmart.com/H107804789A?bid=1790757219028" class="btn-cta-giant">
           <span>¡ACCEDER AHORA POR SOLO 5€!</span>
           <span class="btn-cta-subtext">Garantía Incondicional de 7 Días</span>
-        </button>
+        </a>
 
         <div style="margin-top: 14px; font-size: 11px; color: #64748b;">
           🔒 Pago seguro cifrado SSL de 256 bits • Descarga inmediata
@@ -1283,9 +1283,9 @@
       <div style="font-size: 11.5px; color: #94a3b8;">Precio Especial:</div>
       <div style="font-size: 16px; font-weight: 900; color: #fbbf24;">Solo 5€</div>
     </div>
-    <button class="btn-cta-giant" style="padding: 10px 20px; font-size: 13.5px; width: auto; max-width: none; margin: 0;" onclick="openCheckoutModal()">
+    <a href="https://pay.hotmart.com/H107804789A?bid=1790757219028" class="btn-cta-giant" style="padding: 10px 20px; font-size: 13.5px; width: auto; max-width: none; margin: 0; text-decoration: none;">
       <span>¡COMPRAR POR 5€!</span>
-    </button>
+    </a>
   </div>
 
   <!-- CHECKOUT MODAL (5 EUROS) -->
@@ -1417,9 +1417,11 @@
     setInterval(showToast, 11000);
     setTimeout(showToast, 3000);
 
-    // Checkout Modal
+    // Checkout Direct to Hotmart
+    const HOTMART_CHECKOUT_URL = 'https://pay.hotmart.com/H107804789A?bid=1790757219028';
+
     function openCheckoutModal() {
-      document.getElementById('checkout-modal').classList.add('active');
+      window.location.href = HOTMART_CHECKOUT_URL;
     }
     function closeCheckoutModal() {
       document.getElementById('checkout-modal').classList.remove('active');
@@ -1427,8 +1429,7 @@
 
     function handleCheckoutSubmit(e) {
       e.preventDefault();
-      document.getElementById('checkout-form').style.display = 'none';
-      document.getElementById('checkout-success').style.display = 'block';
+      window.location.href = HOTMART_CHECKOUT_URL;
     }
   </script>
 </body>
